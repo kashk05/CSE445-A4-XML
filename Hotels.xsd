@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <!-- Root element -->
   <xs:element name="Hotels" type="HotelsType"/>
 
-  <!-- Hotels type -->
+  <!-- Root type: one or more Hotel elements -->
   <xs:complexType name="HotelsType">
     <xs:sequence>
       <xs:element name="Hotel" type="HotelType" minOccurs="1" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
 
-  <!-- Hotel type -->
+  <!-- Hotel: Name, then Phone+, then Address, in that exact order -->
   <xs:complexType name="HotelType">
     <xs:sequence>
       <xs:element name="Name" type="xs:string"/>
       <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
       <xs:element name="Address" type="AddressType"/>
     </xs:sequence>
+    <!-- Optional attribute Rating on Hotel -->
     <xs:attribute name="Rating" type="xs:decimal" use="optional"/>
   </xs:complexType>
 
-  <!-- Address type -->
+  <!-- Address: Number, Street, City, State, Zip (order matters)
+       Required attribute NearestAirport on Address -->
   <xs:complexType name="AddressType">
     <xs:sequence>
       <xs:element name="Number" type="xs:string"/>
