@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ERROR (1): Root element is 'Hotel' instead of 'Hotels' -->
+<Hotel>
+
+  <!-- Keep the Figure 1 example intact (still structurally fine inside the wrong root) -->
+  <Hotel Rating="4.2">
+    <Name>Westin</Name>
+    <Phone>480-968-8885</Phone>
+    <Phone>800-937-8461</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>11</Number>
+      <Street>E 7th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+  <!-- ERROR (2): Missing required Address/@NearestAirport -->
+  <Hotel>
+    <Name>Hilton Garden Inn Tempe Downtown</Name>
+    <Phone>480-123-0001</Phone>
+    <Address>
+      <Number>222</Number>
+      <Street>W 6th St</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+  <!-- ERROR (3): Phone element missing entirely -->
+  <Hotel Rating="4.0">
+    <Name>Hyatt Place Tempe / Phoenix University</Name>
+    <Address NearestAirport="Sky Harbor">
+      <Number>601</Number>
+      <Street>S Mill Ave</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+  <!-- ERROR (4): Address has no closing tag -->
+  <Hotel>
+    <Name>Graduate Tempe</Name>
+    <Phone>480-123-0003</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>225</Number>
+      <Street>E Apache Blvd</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    <!-- Missing </Address> here -->
+  </Hotel>
+
+  <!-- ERROR (5): Two Name elements -->
+  <Hotel Rating="3.9">
+    <Name>AC Hotel Phoenix Tempe / Downtown</Name>
+    <Name>AC Tempe Downtown (Duplicate)</Name>
+    <Phone>480-123-0004</Phone>
+    <Address NearestAirport="Sky Harbor">
+      <Number>100</Number>
+      <Street>E Rio Salado Pkwy</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+
+</Hotel>
